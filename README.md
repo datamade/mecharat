@@ -36,14 +36,14 @@ Using computer vision, the amount of necessary labor for form transcription can 
 
 # References
 Image clustering (Whole Forms or Form Fields) 
-- Extract SIFT, SURF, and other features.
+- [Extract SIFT, SURF, and other features](https://opencv-python-tutroals.readthedocs.org/en/latest/py_tutorials/py_feature2d/py_table_of_contents_feature2d/py_table_of_contents_feature2d.html#py-table-of-content-feature2d). 
 - Train cluster detection (dedupe-like) using user feedback (common labels for signatures and forms)
 
 Template Creation
 Path 1
 - User extract information from form.
 - Attempt to find extracted text in OCRed document
-- Draw bounding box around position of text in document
+- Draw bounding box around position of text in document, using [PDFMiner](http://www.unixuser.org/~euske/python/pdfminer/programming.html#basic)
 - Repeat for multiple iterations
 - Select largest bounding box
 
