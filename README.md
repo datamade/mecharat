@@ -11,7 +11,7 @@ However, form data is still very hard, particularly when the form response is ha
 [Captricity](http://captricity.com/) is building a business transcribing form data, but the pricing is prohibitive for smaller shops. 
 
 # Prior Art
-For the 2012 Election, Propublica created an site, [Free the Files](https://projects.propublica.org/free-the-files/), for their readers to help them track "dark money" by transcribing payers for political advertising from televisions station invoices. 
+For the 2012 Election, Propublica created an site, [Free the Files](https://projects.propublica.org/free-the-files/), for their readers to help them track "dark money" by transcribing payers for political advertising from television station invoices. 
 
 The heart of the site was a tool called [transcribable](https://github.com/propublica/transcribable). After logging in,
  a user would ask for a invoice to transcribe, an invoice would be fetched from [DocumentCloud](http://www.documentcloud.org/home), the user would extract four pieces of information from the invoice, submit the information, and another task would be automatically loaded.
@@ -31,7 +31,7 @@ Using computer vision, the amount of necessary labor for form transcription can 
 These capabilities would work on top of transcribable, in order to have the people doing most difficult tasks, while robots take care of the tasks that can be easily automated. When the computer vision does not work, humans are brought into the loop, to fix and, implicitly train the robots. 
 
 # Other use cases
-1. In Illnois, political workers collection petitions to get on the ballot have to sign their names at the bottom of the petition forms. Information on who is working on what campaigns can provide very useful information about political alliances. Using these forms, Dan Mihapoulos was able to find that Alderman Ed Burke was sending his political workers to support Gery Chico in the 2011 Chicago mayoral race, even though Burke said he was neutral.
+1. In Illnois, political workers collecting petitions to get on the ballot have to sign their names at the bottom of the petition forms. Information on who is working on what campaigns can provide very useful information about political alliances. Using these forms, Dan Mihapoulos was able to find that Alderman Ed Burke was sending his political workers to support Gery Chico in the 2011 Chicago mayoral race, even though Burke said he was neutral.
 2. Zoning Reclassification Applications include information on the person making the application and what they want to do with land. Timely access to this information is of interest to neighbors and local community groups.
 3. In many jurisdictions, police officers collect contact cards when making routine street stops. These are available through FOIA requests. Besides normal demographic information these cards contain things like gang affiliation. If liberated the information on these cards could be of interest to a whole range of individuals and organizations.
 
