@@ -34,7 +34,23 @@ Using computer vision, the amount of necessary labor for form transcription can 
 3. In many jurisdictions, police officers collect contact cards when making routine street stops. These are available through FOIA requests. Besides normal demographic information these cards contain things like gang affiliation. If liberated the information on these cards could be of interest to a whole range of individuals and organizations.
 
 
+# References
+Image clustering (Whole Forms or Form Fields) 
+- Extract SIFT, SURF, and other features.
+- Train cluster detection (dedupe-like) using user feedback (common labels for signatures and forms)
 
+Template Creation
+Path 1
+- User extract information from form.
+- Attempt to find extracted text in OCRed document
+- Draw bounding box around position of text in document
+- Repeat for multiple iterations
+- Select largest bounding box
+
+Path 2
+- User draws bounding box around relevant text for field
+- Repeat for multiple iterations
+- Select largest bounding box
 
 
 
