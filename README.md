@@ -40,6 +40,7 @@ Image clustering (Whole Forms or Form Fields)
 - Train cluster detection (dedupe-like) using user feedback (common labels for signatures and forms)
 
 Template Creation
+
 Path 1
 - User extract information from form.
 - Attempt to find extracted text in OCRed document
