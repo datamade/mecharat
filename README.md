@@ -31,6 +31,7 @@ Using computer vision, the amount of necessary labor for form transcription can 
 # Other use cases
 1. In Illnois, political workers collection petitions to get on the ballot have to sign their names at the bottom of the petition forms. Information on who is working on what campaigns can provide very useful information about political alliances. Using these forms, Dan Mihapoulos was able to find that Alderman Ed Burke was sending his political workers to support Gery Chico in the 2011 Chicago mayoral race, even though Burke said he was neutral.
 2. Zoning Reclassification Applications include information on the person making the application and what they want to do with land. Timely access to this information is of interest to neighbors and local community groups.
+3. In many jurisdictions, police officers collect contact cards when making routine street stops. These are available through FOIA requests. Besides normal demographic information these cards contain things like gang affiliation. If liberated the information on these cards could be of interest to a whole range of individuals and organizations.
 
 
 
