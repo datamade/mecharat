@@ -8,6 +8,8 @@ We now have decent, open source tools to exract typewritten text and tabular dat
 
 However, form data is still very hard, particularly when the form response is hand written. Within our community, this is still typically done by hand. That means it's often not done at all.
 
+[Captricity](http://captricity.com/) is building a business transcribing form data, but the pricing is prohibitive for smaller shops. 
+
 # Prior Art
 For the 2012 Election, Propublica created an site, [Free the Files](https://projects.propublica.org/free-the-files/), for their readers to help them track "dark money" by transcribing payers for political advertising from televisions station invoices. 
 
