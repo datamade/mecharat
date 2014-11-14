@@ -28,6 +28,8 @@ Using computer vision, the amount of necessary labor for form transcription can 
 3. Confirming Extraction. If we understand the template for a document, we may be able to extract the relevant document using OCR. Transcribing could start with our best, OCR, attempt to fill in the information. The user either accepts or corrects the information.
 4. Recognizing handwritten information. If we understand the template for a document, when a user transcribes handwritten information we can store, as an image, the relevant part of the document. Although we may not be able to OCR handwritten information, we can try to match a new form field image against a growing set of identified images.
 
+These capabilities would work on top of transcribable, in order to have the people doing most difficult tasks, while robots take care of the tasks that can be easily automated. When the computer vision does not work, humans are brought into the loop, to fix and, implicitly train the robots. 
+
 # Other use cases
 1. In Illnois, political workers collection petitions to get on the ballot have to sign their names at the bottom of the petition forms. Information on who is working on what campaigns can provide very useful information about political alliances. Using these forms, Dan Mihapoulos was able to find that Alderman Ed Burke was sending his political workers to support Gery Chico in the 2011 Chicago mayoral race, even though Burke said he was neutral.
 2. Zoning Reclassification Applications include information on the person making the application and what they want to do with land. Timely access to this information is of interest to neighbors and local community groups.
