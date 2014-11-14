@@ -46,6 +46,7 @@ Using computer vision, the amount of necessary labor for form transcription can 
 - Draw bounding box around position of text in document, using [PDFMiner](http://www.unixuser.org/~euske/python/pdfminer/programming.html#basic)
 - Repeat for multiple iterations
 - Select largest bounding box
+
 ###Path 2
 - User draws bounding box around relevant text for field
 - Repeat for multiple iterations
