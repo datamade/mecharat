@@ -4,7 +4,7 @@ mecharat
 Robot Assisted Transcriptions
 
 # Problem
-We now have decent, open source tools to exract typewritten text and tabular data from PDFs thanks to tools like [Tesseract](https://code.google.com/p/tesseract-ocr/) and [Tabula](https://github.com/tabulapdf/tabula-extractor).
+We now have decent, open source tools to extract typewritten text and tabular data from PDFs thanks to tools like [Tesseract](https://code.google.com/p/tesseract-ocr/) and [Tabula](https://github.com/tabulapdf/tabula-extractor).
 
 However, form data is still very hard, particularly when the form response is hand written. Within our community, this is still typically done by hand. That means it's often not done at all.
 
