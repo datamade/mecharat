@@ -8,7 +8,7 @@ what it's actually doing but I think it's worth examining as we'll probably
 need to do things like this eventually.
 '''
 
-img = cv2.imread('digits.png')
+img = cv2.imread('sample_files/digits.png')
 gray = cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
 
 # image is 2000 x 1000 so we are splitting it into the 20 x 20 cells 

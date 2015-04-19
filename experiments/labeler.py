@@ -2,7 +2,7 @@ import cv2
 import numpy
 
 ''' 
-Basic attempt at a labeller that displays a pair of images and expects a user
+Basic attempt at a labeler that displays a pair of images and expects a user
 to press "y" or "n" to tell us if the images match. It just dumps out that
 training when it's done displaying all of the combinations of images but we
 could hypothetically take that input and train a model with it.
@@ -38,5 +38,8 @@ if __name__ == "__main__":
     for pair in pairs:
         image_paths = [os.path.join(imagedir, p) for p in pair]
         choice = label(*image_paths)
-        training[choice].append(image_paths)
+        try:
+            training[choice].append(image_paths)
+        except KeyError:
+            pass
     print(json.dumps(training, indent=4))
