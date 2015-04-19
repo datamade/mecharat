@@ -24,9 +24,12 @@ k = np.arange(10)
 train_labels = np.repeat(k,250)[:,np.newaxis]
 test_labels = train_labels.copy()
 
-knn = cv2.KNearest()
-knn.train(train,train_labels)
+knn = cv2.ml.KNearest_create()
+td = cv2.ml.TrainData_create(train, train_labels)
+knn.train(td)
 ret,result,neighbours,dist = knn.find_nearest(test,k=5)
+
+cv2.imshow(result)
 
 matches = result==test_labels
 
