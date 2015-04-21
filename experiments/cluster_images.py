@@ -6,9 +6,7 @@ This just takes a pair of images, uses the SURF algorithm to find keypoints and
 then uses a FLANN based matcher to find where those keypoints match. 
 '''
 
-MIN_MATCHES = 50
-
-def findMatch(image1, image2):
+def findMatch(image1, image2, min_keypoints=50):
     img1 = cv2.resize(cv2.imread(image1), (0,0,), fx=0.3, fy=0.3)
     img2 = cv2.resize(cv2.imread(image2), (0,0,), fx=0.3, fy=0.3)
 
@@ -41,7 +39,7 @@ def findMatch(image1, image2):
         if m.distance < 0.75 * n.distance:
             good.append(m.distance)
 
-    if len(good) > MIN_MATCHES:
+    if len(good) > min_keypoints:
         # Return average of distances
         return True, (sum(good) / len(good))
     return False, 1
@@ -51,14 +49,50 @@ if __name__ == "__main__":
     from itertools import combinations
     import json
     import numpy
+    from dedupe.clustering import cluster
+    from random import randrange
 
     imagedir = os.path.join(os.path.abspath(os.path.dirname(__file__)), 'dumped_images')
-    pairs = combinations(os.listdir(imagedir), 2)
+    all_images = {idx: i for idx, i in enumerate(os.listdir(imagedir))}
+
+    # Just doing 20 random combos to test it out
+    choices = [randrange(0, len(all_images.keys())) for i in range(20)]
+    pairs = combinations(choices, 2)
     results = []
-    for pair in pairs:
-        image_paths = [os.path.join(imagedir, p) for p in pair]
-        match, distance = findMatch(*image_paths)
-        results.append(((pair[0], pair[1],), distance,))
-        with open('results.json', 'w') as f:
-            f.write(json.dumps(results, indent=4))
+    for idx, pair in enumerate(pairs):
+        image1, image2 = [os.path.join(imagedir, all_images[p]) for p in pair]
+        match, distance = findMatch(image1, image2, min_keypoints=60)
+        if distance < 1:
+            results.append(((pair[0], pair[1],), (1 - distance),))
+            with open('results.json', 'w') as f:
+                f.write(json.dumps(results, indent=4))
+        if idx % 100 == 0:
+            print('made %d comparisons' % idx)
+    results = numpy.fromiter(results, dtype=[('pairs', 'i8', 2), ('score', 'f4', 1,)])
+    clusters = cluster(results)
+    for indexes, scores in clusters:
+        images = []
+        i = 0
+        for index in indexes:
+            image_name = all_images[index]
+            image_path = os.path.join(imagedir, image_name)
+            cluster_path = 'clustered_images/{0}'.format(str(i))
+
+            # There must be a better way to do this
+            try:
+                os.mkdir(cluster_path)
+            except OSError:
+                for f in os.listdir(cluster_path):
+                    try:
+                        os.remove(f)
+                    except OSError:
+                        pass
+            print('writing %s' % image_name)
+            with open(image_path, 'rb') as inp:
+                with open(os.path.join('clustered_images', str(i), image_name), 'wb') as outp:
+                    outp.write(inp.read())
+            i += 1
+
+
+
 
