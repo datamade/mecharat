@@ -14,13 +14,15 @@ This just takes a pair of images, uses the SURF algorithm to find keypoints and
 then uses a FLANN based matcher to find where those keypoints match. 
 '''
 
-imagedir = os.path.join(os.path.abspath(os.path.dirname(__file__)), 'select_images')
+imagedir = os.path.join(os.path.abspath(os.path.dirname(__file__)), 'dumped_images')
 all_images = {idx: i for idx, i in enumerate(os.listdir(imagedir))}
 
 def findMatch(image1, image2, min_keypoints=50):
+    print(image1, image2)
     img1 = cv2.resize(cv2.imread(image1), (0,0,), fx=0.3, fy=0.3)
     img2 = cv2.resize(cv2.imread(image2), (0,0,), fx=0.3, fy=0.3)
 
+    print('about to surf')
     surf = cv2.xfeatures2d.SURF_create(400)
     kp1, des1 = surf.detectAndCompute(img1, None)
     kp2, des2 = surf.detectAndCompute(img2, None)
@@ -29,8 +31,11 @@ def findMatch(image1, image2, min_keypoints=50):
     index_params = dict(algorithm = FLANN_INDEX_KDTREE, trees = 5)
     search_params = dict(checks=50)
 
+    print('about to matcher')
     matcher = cv2.FlannBasedMatcher(index_params,search_params)
+    
 
+    print('about to match')
     try:
         matches = matcher.knnMatch(des1,des2,k=2)
     except cv2.error as e:
@@ -48,8 +53,8 @@ def findMatch(image1, image2, min_keypoints=50):
 
     if len(good) > min_keypoints:
         # Return average of distances
-        print(min(good), max(good))
-        print('%s, %s' % (len(good), 1 - (sum(good) / len(good))))
+        # print(min(good), max(good))
+        # print('%s, %s' % (len(good), 1 - (sum(good) / len(good))))
         return True, 1 - (sum(good) / len(good))
     return False, 1
 

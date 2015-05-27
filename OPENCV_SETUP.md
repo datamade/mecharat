@@ -20,8 +20,12 @@ sudo apt-get install cmake libgtk2.0-dev pkg-config libavcodec-dev \
   libavformat-dev libswscale-dev libamd2.2.0 libblas3gf libc6 libgcc1 \
   libgfortran3 liblapack3gf libumfpack5.4.0 libstdc++6 build-essential \
   gfortran libatlas-dev libatlas-base-dev libblas-dev liblapack-dev libjpeg-dev \
-  libpng-dev libtiff-dev libjasper-dev
+  libpng-dev libtiff-dev libjasper-dev libtbb-dev
 ```
+
+``libtbb-dev`` is specific for Intel based systems. It does some magic
+under the hood to parallelize things where possible. If you're not on an
+Intel based system, just omit that requirement.
 
 **Clone OpenCV and OpenCV contrib**
 
@@ -41,17 +45,22 @@ files) will be placed in a path relative to where you are doing your build.
 
 ```
 $ cmake -Wno-dev -DCMAKE_BUILD_TYPE=Release \
+                 -DWITH_TBB=ON \
+                 -DWITH_GDAL=ON \
                  -DBUILD_opencv_python2=OFF \
-                 -DPYTHON2_EXECUTABLE=/Users/eric/.virtualenvs/opencv-2.7/bin/python2.7 \
-                 -DPYTHON2_INCLUDE_DIR=/Users/eric/.virtualenvs/opencv-2.7/include/python2.7 \
-                 -DPYTHON2_LIBRARY=/usr/local/Cellar/python/2.7.9/Frameworks/Python.framework/Versions/2.7/lib/libpython2.7.dylib \
-                 -DPYTHON2_NUMPY_INCLUDE_DIRS=/Users/eric/.virtualenvs/opencv-2.7/lib/python2.7/site-packages/numpy/core/include \
+                 -DPYTHON2_EXECUTABLE=/home/eric/.virtualenvs/mecharat-2.7/bin/python2.7 \
+                 -DPYTHON2_INCLUDE_DIR=/home/eric/.virtualenvs/mecharat-2.7/include/python2.7 \
+                 -DPYTHON2_NUMPY_INCLUDE_DIRS=/home/eric/.virtualenvs/mecharat-2.7/lib/python2.7/site-packages/numpy/core/include \
+                 -DPYTHON2_PACKAGES_PATH=/home/eric/.virtualenvs/mecharat-2.7/lib/python2.7/site-packages \
                  -DBUILD_opencv_python3=ON \
-                 -DPYTHON3_EXECUTABLE=/Users/eric/.virtualenvs/opencv/bin/python \
-                 -DPYTHON3_INCLUDE_DIR=/Users/eric/.virtualenvs/opencv/include/python3.4m \
-                 -DPYTHON3_LIBRARY=/usr/local/Cellar/python3/3.4.3/Frameworks/Python.framework/Versions/3.4/lib/libpython3.4m.dylib \
-                 -DPYTHON3_NUMPY_INCLUDE_DIRS=/Users/eric/.virtualenvs/opencv/lib/python3.4/site-packages/numpy/core/include \
-                 -DPYTHON3_PACKAGES_PATH=/Users/eric/.virtualenvs/opencv/lib/python3.4/site-packages \
-                 -DOPENCV_EXTRA_MODULES_PATH=/Users/eric/code/opencv/src/opencv_contrib/modules \
+                 -DPYTHON3_EXECUTABLE=/home/eric/.virtualenvs/mecharat/bin/python \
+                 -DPYTHON3_INCLUDE_DIR=/home/eric/.virtualenvs/mecharat/include/python3.4m \
+                 -DPYTHON3_LIBRARY=/usr/lib/x86_64-linux-gnu/libpython3.4m.so.1.0 \
+                 -DPYTHON3_NUMPY_INCLUDE_DIRS=/home/eric/.virtualenvs/mecharat/lib/python3.4/site-packages/numpy/core/include \
+                 -DPYTHON3_PACKAGES_PATH=/home/eric/.virtualenvs/mecharat/lib/python3.4/site-packages \
+                 -DOPENCV_EXTRA_MODULES_PATH=/home/eric/code/opencv_contrib/modules \
                  ..
 ```
+
+As with ``libtbb-dev`` above, the ``-DWITH_TBB`` flag is for Intel based
+systems and can be omitted for other architectures.
