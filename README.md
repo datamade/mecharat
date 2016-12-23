@@ -6,12 +6,12 @@ Robot Assisted Transcriptions
 # Problem
 We now have decent, open source tools to extract typewritten text and tabular data from PDFs thanks to tools like [Tesseract](https://code.google.com/p/tesseract-ocr/) and [Tabula](https://github.com/tabulapdf/tabula-extractor).
 
-However, form data is still very hard, particularly when the form response is hand written. Within our community, this is still typically done by hand. That means it's often not done at all.
+However, form data is still very hard, particularly with handwritten form responses. Within our community, we typically do this by hand or, more often, not at all.
 
-[Captricity](http://captricity.com/) is building a business transcribing form data, but the pricing is prohibitive for smaller shops. 
+[Captricity](http://captricity.com/) has built a transcription tool for form data, but the pricing is prohibitive for smaller shops. 
 
 # Prior Art
-For the 2012 Election, Propublica created an site, [Free the Files](https://projects.propublica.org/free-the-files/), for their readers to help them track "dark money" by transcribing payers for political advertising from television station invoices. 
+For the 2012 Election, Propublica created a site, [Free the Files](https://projects.propublica.org/free-the-files/), for their readers to help them track "dark money" by transcribing payers for political advertising from television station invoices. 
 
 The heart of the site was a tool called [transcribable](https://github.com/propublica/transcribable). After logging in,
  a user would ask for a invoice to transcribe, an invoice would be fetched from [DocumentCloud](http://www.documentcloud.org/home), the user would extract four pieces of information from the invoice, submit the information, and another task would be automatically loaded.
