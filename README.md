@@ -54,6 +54,20 @@ These capabilities would work on top of transcribable, in order to have the peop
 - Repeat for multiple iterations
 - Select largest bounding box
 
+## Team
+
+* Forest Gregg, DataMade
+* Eric van Zanten, DataMade
+
+## Note on Patches and Pull Requests
+
+* Fork the project.
+* Make your feature addition or bug fix.
+* Send a pull request. Bonus points for topic branches.
+
+## Copyright
+
+Copyright (c) 2016 DataMade. Released under the [MIT License](https://github.com/datamade/mecharat/blob/master/LICENSE).
 
 
 
